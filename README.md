@@ -31,7 +31,11 @@ As you go through this assignment, use test-driven development as much as possib
 
 Read [the Mountain Paths PDF](MountainPaths.pdf) to get started.
 
-Read the data from `elevation_small.txt` into an appropriate data structure to get the elevation data. This file is made up of multiple lines. Each line has a list of numbers representing elevation in meters. The elevation is the maximum elevation for a 90m x 90m square.
+(Item 1) Read the data from `elevation_small.txt` into an appropriate data structure to get the elevation data. This file is made up of multiple lines. Each line has a list of numbers representing elevation in meters. The elevation is the maximum elevation for a 90m x 90m square.
+
+- read the file and store it as a list of lists. check out readlines.
+- print out what you have and think about how it corresponds to elevations on a map.
+- how to match each elevation to its corresponding coordinates. probably by finding its index.
 
 The numbers in this file are lined up like x-y coordinates. If the file contains the following:
 
@@ -43,6 +47,10 @@ The numbers in this file are lined up like x-y coordinates. If the file contains
 ```
 
 Then the elevation at the top left corner (x: 0, y: 0) is 150 and the elevation at the bottom right (x: 3, y: 3) is 192. The elevation at x: 1, y: 2 is 191.
+
+- using the pillow library, make a black or white square that matches dimensions (how to make a square of certain dimensions in pillow)
+- figure out the percentage ; lowest elevation (black) highest elevation (white). figure out the percentage of the difference that each elevation is. lower places have lower percentage closer to zero so they will be darker, higher places have higher percentage so they will be lighter.
+- try to match one pixel grayscale intensity it according to elevation
 
 Using the [Pillow library](https://pillow.readthedocs.io/en/3.0.x/index.html), create an elevation map from the data. Higher elevations should be brighter; lower elevations darker. Read [the chapter on manipulating images from _Automate the Boring Stuff with Python_](https://automatetheboringstuff.com/chapter17/) to learn how to use Pillow.
 
