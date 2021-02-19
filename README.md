@@ -46,6 +46,7 @@ The numbers in this file are lined up like x-y coordinates. If the file contains
 193 195 190 192
 ```
 
+the element in the line's index is equivalent to the x value.
 Then the elevation at the top left corner (x: 0, y: 0) is 150 and the elevation at the bottom right (x: 3, y: 3) is 192. The elevation at x: 1, y: 2 is 191.
 
 - using the pillow library, make a black or white square that matches dimensions (how to make a square of certain dimensions in pillow)
