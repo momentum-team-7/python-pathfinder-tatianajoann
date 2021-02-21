@@ -59,14 +59,41 @@ def draw_path(thing_to_draw):
     img.putpixel(thing_to_draw, (127, 255, 0))
 
 
+def find_low_difference(current, top, mid, bottom):
+    top_dif = current - top
+    mid_dif = current - mid
+    bottom_dif = current - bottom
+    low_dif = min([top_dif, mid_dif, bottom_dif])
+    if low_dif == top_dif:
+        return top
+    elif low_dif == mid_dif:
+        return mid
+    else:
+        return bottom
+
+
 def find_short_path():
     x = 0
-    # starting_pos = coordinates[300][x]
-    # next_position = None
-    for coordinate in coordinates:
-        draw_path((x, 300))
+    y = 300
+    for coordinate in range(len(coordinates)):
+        draw_path((x, y))
+        current_position = int(coordinates[y][x])
         x = x + 1
-    img.save('pil_read.png')
+        top = y - 1
+        bottom = y + 1
+
+        top_el = int(coordinates[top][x])
+        mid_el = int(coordinates[y][x])
+        bottom_el = int(coordinates[bottom][x])
+        low_el = find_low_difference(
+            current_position, top_el, mid_el, bottom_el)
+        if low_el == top_el:
+            y = top
+        elif low_el == bottom_el:
+            y = bottom
+        if x == 599:
+            img.save('pil_read.png')
+            return
 
 
 find_short_path()
