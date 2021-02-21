@@ -74,7 +74,7 @@ def find_low_difference(current, top, mid, bottom):
 
 def find_short_path():
     x = 0
-    y = 300
+    y = int(input("Pick a starting point between 0 and 599: "))
     for coordinate in range(len(coordinates)):
         draw_path((x, y))
         current_position = int(coordinates[y][x])
