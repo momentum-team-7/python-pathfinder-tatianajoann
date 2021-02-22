@@ -97,6 +97,7 @@ def find_short_path():
         elif low_el == bottom_el:
             y = bottom
         if x == length_of_file:
+            draw_path((x, y))
             img.save('pil_read.png')
             return
 
