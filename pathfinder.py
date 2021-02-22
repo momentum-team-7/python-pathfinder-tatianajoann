@@ -12,7 +12,7 @@ from PIL import Image, ImageDraw
 # - try to match one pixel grayscale intensity it according to elevation
 
 coordinates = []
-with open("elevation_large.txt", "r") as file:
+with open("elevation_small.txt", "r") as file:
     for line in file.readlines():
         coordinates.append(line.split())
 # turning each line into list, then putting all the list in the big lists
@@ -80,10 +80,12 @@ def find_short_path():
     for coordinate in range(len(coordinates)):
         draw_path((x, y))
         current_position = int(coordinates[y][x])
-
-        x = x + 1
-        top = y - 1
-        bottom = y + 1
+        if x != length_of_file:
+            x = x + 1
+        if y != height_of_file:
+            bottom = y + 1
+        if y != 0:
+            top = y - 1
 
         top_el = int(coordinates[top][x])
         mid_el = int(coordinates[y][x])
@@ -94,7 +96,7 @@ def find_short_path():
             y = top
         elif low_el == bottom_el:
             y = bottom
-        if x == length_of_file or y == height_of_file:
+        if x == length_of_file:
             img.save('pil_read.png')
             return
 
